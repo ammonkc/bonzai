@@ -43,7 +43,7 @@ gulp.task('jshint', function() {
   return gulp.src(config.src)
     .pipe(watch(config.src))
     .pipe(plumber())
-    .pipe(jshint('../../.jshintrc', {fail:true}))
+    .pipe(jshint('.jshintrc', {fail:true}))
     .pipe(jshint.reporter(stylish))
     .pipe(jshintErrorReporter) // If error pop up a notify alert
     .on('error', notify.onError(function (error) {
