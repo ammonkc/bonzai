@@ -25,12 +25,7 @@ gulp.task('styles', function () {
                .pipe(prefix(config.autoprefixer))
                .pipe(srcmaps.write('maps'))
                .pipe(gulp.dest(destination))
-               .pipe(rev())
-               .pipe(gulp.dest(config.rev.dest))
                .pipe(notify(asset + '.css compiled'));
     });
-    var manifest = gulp.src(config.rev.manifest.src);
-    return merge(tasks, manifest)
-             .pipe(rev.manifest({path: 'css-manifest.json'}))
-             .pipe(gulp.dest(config.rev.manifest.dest));
+    return merge(tasks);
 });

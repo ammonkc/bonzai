@@ -26,7 +26,7 @@ gulp.task('scripts:production', function () {
                    .pipe(gulp.dest(config.rev.dest))
                    .pipe(notify(asset + '.js compiled, combined, and compressed'));
     });
-    var filter = gulpFilter(['*.js', '!*.min.js']);
+    var filter = gulpFilter(['*.js', '!*min.js']);
     var copy = gulp.src(config.copy)
                    .pipe(filter)
                    .pipe(uglify({mangle: true}).on('error', gutil.log))
